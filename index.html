@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ระบบตรวจจับท่านั่ง</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+  <!-- MoveNet -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+</head>
+<body>
+
+  <h2 class="title">ระบบตรวจจับท่านั่งที่ถูกต้อง</h2>
+
+  <div class="container">
+
+    <!-- ฝั่งซ้าย: กล้อง + AI -->
+    <div class="video-box">
+
+      <!-- วิดีโอ -->
+      <video id="video" autoplay playsinline muted></video>
+
+      <!-- Canvas สำหรับวาดจุดร่างกาย -->
+      <canvas id="canvas"></canvas>
+
+      <!-- สถานะท่านั่ง -->
+      <div id="status" class="status good">
+        ✅ ท่านั่งดี
+      </div>
+
+      <!-- ปุ่มเปิด-ปิดกล้อง -->
+      <div class="control">
+        <button id="openBtn">เปิดกล้อง</button>
+        <button id="closeBtn" disabled>ปิดกล้อง</button>
+      </div>
+
+      <!-- ปุ่มทดสอบสถานะ (ลบได้เมื่อใช้ AI จริง) -->
+      <div class="test">
+        <button onclick="setGood()">ท่านั่งดี</button>
+        <button onclick="setBad()">ท่านั่งไม่ดี</button>
+      </div>
+
+    </div>
+
+    <!-- ฝั่งขวา: คำแนะนำ -->
+    <div class="guide-box">
+      <h3>คำแนะนำท่านั่งที่ถูกต้อง</h3>
+      <ul>
+        <li>นั่งหลังตรง</li>
+        <li>เท้าราบพื้น</li>
+        <li>หน้าจอระดับสายตา</li>
+        <li>ยืดทุก 45–60 นาที</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- JavaScript หลัก -->
+  <script src="script.js"></script>
+
+</body>
+</html>
