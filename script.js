@@ -74,7 +74,7 @@ function angleDeg(p1, p2) {
 }
 
 function checkPosture(angle) {
-  angle > 80 && angle < 100 ? setGood() : setBad();
+  angle > 80 && angle < 95 ? setGood() : setBad();
 }
 
 async function detectPose() {
@@ -116,3 +116,4 @@ async function detectPose() {
 
   requestAnimationFrame(detectPose);
 }
+
